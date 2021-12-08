@@ -2,7 +2,7 @@
 import groovy.json.JsonSlurperClassic
 
 def jsonParse(def json) {
-  nuew groovy.json.JsonSlurperClassic().parseText(json)
+  new groovy.json.JsonSlurperClassic().parseText(json)
 }
 
 pipeline {
@@ -11,7 +11,7 @@ pipeline {
     appName = 'variable'
   }
   stages {
-    stage {
+    stage('paso 1') {
       steps {
         script {
           echo 'Hola Mundo'
@@ -25,11 +25,9 @@ pipeline {
        echo 'fase always'
     }
     success {
-      deleteDir() 
        echo 'fase success'
     }
     failure {
-      deleteDir() 
        echo 'fase failure'
     }
   }
